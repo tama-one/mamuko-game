@@ -90,6 +90,6 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
 # 結果表示
 if st.session_state.show_result:
     if "不正解" in st.session_state.last_result:
-        st.image("ojisan_game_assets/ojisan.png", use_column_width=True)
+        st.image("ojisan_game_assets/ojisan.png", use_container_width=True)
     st.info(st.session_state.last_result)
     st.session_state.show_result = False
