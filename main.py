@@ -3,8 +3,8 @@ import streamlit as st
 import base64
 import random
 
-st.set_page_config(page_title="まむこから取り戻せ", layout="centered")
-st.title("まむこから取り戻せ")
+st.set_page_config(page_title="クイズに正解してまむこに奪われたお金を取り戻すゲーム", layout="centered")
+st.markdown("## クイズに正解してまむこに奪われたお金を取り戻すゲーム")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -43,7 +43,7 @@ st.markdown(f"### 💰 現在の回収額：{st.session_state.score} 円")
 
 # クリア判定
 if st.session_state.score >= 5000:
-    st.success("🎉 クリア！まむこから5,000円を回収した！")
+    st.success("🎉 クリア！まむこから5,000円を取り戻した！")
     st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)  
     st.balloons()
     st.session_state.play_sound = "clear"
@@ -90,6 +90,6 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
 # 結果表示
 if st.session_state.show_result:
     if "不正解" in st.session_state.last_result:
-        st.image("ojisan_game_assets/ojisan.png", width=200)
+        st.image("ojisan_game_assets/ojisan.png", use_column_width=True)
     st.info(st.session_state.last_result)
     st.session_state.show_result = False
