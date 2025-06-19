@@ -3,6 +3,23 @@ import streamlit as st
 import base64
 import random
 
+# 背景画像ファイル名（同じフォルダにある前提）
+bg_file = "image4587.png"
+
+# 背景CSSを読み込む
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url("{bg_file}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 st.set_page_config(page_title="取り戻したい", layout="centered")
 st.markdown("#### まむこに奪われたお金を取り戻そう")
 
