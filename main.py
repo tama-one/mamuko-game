@@ -53,7 +53,7 @@ if st.session_state.score >= 5000:
     st.balloons()
     st.session_state.play_sound = "clear"
 
-    if st.button("🔁 許さない！"):
+    if st.button("🔁 許さない！もう一度しばく"):
         st.session_state.score = 0
         st.session_state.quiz_index = 0
         st.session_state.quiz_order = random.sample(range(len(pd.read_excel("クイズ.xlsx"))), len(pd.read_excel("クイズ.xlsx")))
