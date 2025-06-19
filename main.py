@@ -41,6 +41,10 @@ st.session_state.play_sound = None
 
 st.markdown(f"##### 💰 現在の回収額：{st.session_state.score} 円")
 
+if st.session_state.play_sound == "clear":
+    st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)
+    st.session_state.play_sound = None
+    
 if st.session_state.score >= 5000:
     st.success("🎉 おめでとう！まむこから5,000円を取り戻した！")
 
