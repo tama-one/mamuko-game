@@ -3,8 +3,8 @@ import streamlit as st
 import base64
 import random
 
-st.set_page_config(page_title="クイズに正解してまむこに奪われたお金を取り戻すゲーム", layout="centered")
-st.markdown("## クイズに正解してまむこに奪われたお金を取り戻すゲーム")
+st.set_page_config(page_title="クイズに正解してまむこに奪われたお金を取り戻そう", layout="centered")
+st.markdown("## クイズに正解してまむこに奪われたお金を取り戻そう")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
