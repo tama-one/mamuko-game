@@ -78,8 +78,8 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
     def answer_chosen(choice):
         correct = row["answer"]
         if choice == correct:
-            st.session_state.score += 2000
-            st.session_state.last_result = "✅ 正解！2,000円回収した！"
+            st.session_state.score += 1000
+            st.session_state.last_result = "✅ 正解！1,000円回収した！"
             st.session_state.play_sound = "correct"
         else:
             st.session_state.score -= 1000
@@ -99,7 +99,8 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
 
 # 結果表示
 if st.session_state.show_result:
-    if "不正解" in st.session_state.last_result:
+    if "不正解" not in st.session_state.last_result:
         st.image("ojisan_game_assets/ojisan.png", use_container_width=True)
+
     st.info(st.session_state.last_result)
     st.session_state.show_result = False
