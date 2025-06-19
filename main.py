@@ -4,7 +4,7 @@ import base64
 import random
 
 st.set_page_config(page_title="取り戻したい", layout="centered")
-st.markdown("#### クイズに正解してまむこに奪われたお金を取り戻そう")
+st.markdown("#### まむこに奪われたお金を取り戻そう")
 
 if "score" not in st.session_state:
     st.session_state.score = 0
