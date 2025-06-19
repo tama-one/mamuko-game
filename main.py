@@ -40,6 +40,9 @@ elif st.session_state.play_sound == "clear":
 st.session_state.play_sound = None
 
 st.markdown(f"##### 💰 現在の回収額：{st.session_state.score} 円")
+if st.session_state.show_result:
+    st.info(st.session_state.last_result)
+    st.session_state.show_result = False
 
 if st.session_state.play_sound == "clear":
     st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)
@@ -95,9 +98,3 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
     with col2:
         if st.button(row["option_2"]):
             answer_chosen(row["option_2"])
-
-
-# 結果表示
-if st.session_state.show_result:
-    st.info(st.session_state.last_result)
-    st.session_state.show_result = False
