@@ -3,9 +3,10 @@ import streamlit as st
 import base64
 import random
 
-# GitHubにアップ済みの画像URLを背景に使う（GitHub Pages的な使い方）
+# 背景画像（GitHubの画像を使用）
 bg_file = "https://raw.githubusercontent.com/tama-one/mamuko-game/main/ojisan_game_assets/image4587.png"
 
+# 背景CSSとテキストボックス用のCSS
 st.markdown(
     f"""
     <style>
@@ -15,13 +16,21 @@ st.markdown(
         background-position: center;
         background-repeat: no-repeat;
     }}
+    .text-box {{
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 20px;
+        border-radius: 15px;
+        margin: 10px 0;
+    }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
 st.set_page_config(page_title="取り戻したい", layout="centered")
-st.markdown("#### まむこに奪われたお金を取り戻そう")
+
+# タイトルを読みやすくする（白ボックスに入れる）
+st.markdown('<div class="text-box"><h4>まむこに奪われたお金を取り戻そう</h4></div>', unsafe_allow_html=True)
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -56,24 +65,16 @@ elif st.session_state.play_sound == "clear":
     st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)
 st.session_state.play_sound = None
 
-st.markdown(f"##### 💰 現在の回収額：{st.session_state.score} 円")
+st.markdown(f'<div class="text-box"><h5>💰 現在の回収額：{st.session_state.score} 円</h5></div>', unsafe_allow_html=True)
+
 if st.session_state.show_result:
-    st.info(st.session_state.last_result)
+    st.markdown(f'<div class="text-box">{st.session_state.last_result}</div>', unsafe_allow_html=True)
     st.session_state.show_result = False
 
-if st.session_state.play_sound == "clear":
-    st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)
-    st.session_state.play_sound = None
-    
 if st.session_state.score >= 5000:
     st.success("🎉 clear！まむこから5,000円を取り戻した！")
-
-    # 🎉 おじさんが泣いて喜ぶ画像を表示（画面上部）
     st.image("ojisan_game_assets/ojisan_clear.png", use_container_width=True)
-
-    # 🎵 ファンファーレ鳴らす
     st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)  
-
     st.balloons()
     st.session_state.play_sound = "clear"
 
@@ -92,7 +93,8 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
     row = df.iloc[idx]
 
     st.markdown("---")
-    st.markdown(f"**❓ 問題：{row['question']}**")
+    st.markdown(f'<div class="text-box"><strong>❓ 問題：{row["question"]}</strong></div>', unsafe_allow_html=True)
+
     col1, col2 = st.columns(2)
 
     def answer_chosen(choice):
