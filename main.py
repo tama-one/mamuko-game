@@ -4,7 +4,7 @@ import base64
 import random
 
 # GitHubにアップ済みの画像URLを背景に使う（GitHub Pages的な使い方）
-bg_file = "https://raw.githubusercontent.com/tama-one/mamuko-game/main/image4587.png"
+bg_file = "https://raw.githubusercontent.com/tama-one/mamuko-game/main/ojisan_game_assets/image4587.png"
 
 st.markdown(
     f"""
