@@ -72,7 +72,14 @@ if st.session_state.show_result:
     st.session_state.show_result = False
 
 if st.session_state.score >= 5000:
-    st.success("🎉 clear！まむこから5,000円を取り戻した！")
+    st.markdown(
+    """
+    <div style="background-color:#d4edda; color:#155724; padding:20px; border-radius:10px; font-size:24px; font-weight:bold;">
+        🎉 clear！まむこから5,000円を取り戻した！
+    </div>
+    """,
+    unsafe_allow_html=True
+)
     st.image("ojisan_game_assets/ojisan_clear.png", use_container_width=True)
     st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)  
     st.balloons()
