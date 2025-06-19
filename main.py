@@ -88,17 +88,6 @@ if st.session_state.quiz_index < len(st.session_state.quiz_order):
             answer_chosen(row["option_2"])
 
 
-# おじさん画像のパス
-OJISAN_IMAGE = "ojisan_game_assets/ojisan.png"
-
-# ★1: 最初に条件分岐で画像を表示（ページの一番上に来る）
-if st.session_state.get("play_sound") == "wrong":
-    st.image(OJISAN_IMAGE, use_container_width=True)
-
-# ↓以下、今までの画面の描画ロジック
-st.markdown(f"### 💰 現在の回収額：{st.session_state.score} 円")
-
-
 # 結果表示
 if st.session_state.show_result:
     if "不正解" in st.session_state.last_result:
