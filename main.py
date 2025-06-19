@@ -41,14 +41,19 @@ st.session_state.play_sound = None
 
 st.markdown(f"##### 💰 現在の回収額：{st.session_state.score} 円")
 
-# クリア判定
 if st.session_state.score >= 5000:
-    st.success("🎉 クリア！まむこから5,000円を取り戻した！")
+    st.success("🎉 おめでとう！まむこから5,000円を取り戻した！")
+
+    # 🎉 おじさんが泣いて喜ぶ画像を表示（画面上部）
+    st.image("ojisan_game_assets/ojisan_clear.png", use_column_width=True)
+
+    # 🎵 ファンファーレ鳴らす
     st.markdown(load_audio("ojisan_game_assets/fanfare.mp3"), unsafe_allow_html=True)  
+
     st.balloons()
     st.session_state.play_sound = "clear"
 
-    if st.button("🔁 もう一度まむこをしばく！"):
+    if st.button("🔁 許さない！"):
         st.session_state.score = 0
         st.session_state.quiz_index = 0
         st.session_state.quiz_order = random.sample(range(len(pd.read_excel("クイズ.xlsx"))), len(pd.read_excel("クイズ.xlsx")))
