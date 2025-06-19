@@ -30,7 +30,7 @@ st.markdown(
 st.set_page_config(page_title="取り戻したい", layout="centered")
 
 # タイトルを読みやすくする（白ボックスに入れる）
-st.markdown('<div class="text-box"><h4>まむこに奪われたお金を取り戻そう</h4></div>', unsafe_allow_html=True)
+st.markdown('<h4 style="color: white;">まむこに奪われたお金を取り戻そう</h4>', unsafe_allow_html=True)
 
 if "score" not in st.session_state:
     st.session_state.score = 0
