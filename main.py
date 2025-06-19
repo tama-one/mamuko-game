@@ -3,7 +3,7 @@ import streamlit as st
 import base64
 import random
 
-st.set_page_config(page_title="失われたお金", layout="centered")
+st.set_page_config(page_title="取り戻したい", layout="centered")
 st.markdown("#### クイズに正解してまむこに奪われたお金を取り戻そう")
 
 if "score" not in st.session_state:
@@ -49,7 +49,7 @@ if st.session_state.play_sound == "clear":
     st.session_state.play_sound = None
     
 if st.session_state.score >= 5000:
-    st.success("🎉 おめでとう！まむこから5,000円を取り戻した！")
+    st.success("🎉 clear！まむこから5,000円を取り戻した！")
 
     # 🎉 おじさんが泣いて喜ぶ画像を表示（画面上部）
     st.image("ojisan_game_assets/ojisan_clear.png", use_container_width=True)
